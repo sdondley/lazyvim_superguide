@@ -1,0 +1,12 @@
+# set up basic zsh config
+bindkey '^P' history-beginning-search-backward
+bindkey '^N' history-beginning-search-forward
+bindkey '^E' end-of-line
+
+# improve dir colors
+LS_COLORS="$LS_COLORS:di=00;44"
+
+# auto ls after cd
+#autoload -U add-zsh-hook
+#add-zsh-hook -Uz chpwd (){ /bin/ls --color=auto --group-directories-first; }
+
