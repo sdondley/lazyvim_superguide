@@ -31,9 +31,6 @@ require("custom.my_settings");
 require("lazy").setup(
     {
         -- theme --
-        -- Add a theme to make things a little prettier
-        -- These setting ensure the theme will be loaded early in the startup process
-        -- Settings are from the lazy.nvim README file with additional "opts" settings
         {
             "folke/tokyonight.nvim",
             lazy = false,
