@@ -29,14 +29,25 @@ vim.opt.rtp:prepend(lazypath)
 
 -- setup --
 
--- This line of code loads the lazy plugin's lua file and calls the setup method in it.
--- setup takes two tables as arguments:
-   -- the plugin spec
-   -- option configuration
--- Both of these are lua tables. We will leave them empty for now:
 require("lazy").setup(
-	{}, -- the plugin spec goes here
-	{}  -- our options go here
+	{
+		-- theme --
+		-- Add a theme to make things a little prettier
+		-- These setting ensure the theme will be loaded early in the startup process
+		-- Settings are from the lazy.nvim README file with additional "opts" settings
+		{
+			"folke/tokyonight.nvim",
+			lazy = false,
+			priority = 1000,
+			init = function()
+				vim.cmd([[colorscheme tokyonight]])
+			end,
+			opts = { style = "moon", transparent = true }
+		}
+		-- end theme --
+	}, -- the plugin spec goes here
+
+	{}  -- our lazy.nvim options go here
 )
 
 -- end setup --
