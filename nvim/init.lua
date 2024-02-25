@@ -26,3 +26,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- end lazy_init --
+
+-- setup --
+
+-- This line of code loads the lazy plugin's lua file and calls the setup method in it.
+-- setup takes two tables as arguments:
+   -- the plugin spec
+   -- option configuration
+-- Both of these are lua tables. We will leave them empty for now:
+require("lazy").setup(
+	{}, -- the plugin spec goes here
+	{}  -- our options go here
+)
+
+-- end setup --
