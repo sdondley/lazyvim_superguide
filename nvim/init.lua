@@ -53,10 +53,18 @@ require("lazy").setup(
 
         -- custom_plugin --
 
-        -- Next we add a custom plugin to the configuration with a new plugin spec
-        -- With lazyvim, plugins are found in the ~/projects directory by default
+        -- Add a custom plugin to the configuration with this new plugin spec entry
         {
-            dir = "my_plugin.nvim" -- tell lazy vim which plugin we want to load
+            -- Tell lazy where to find our plugin on our local machine:
+            dir = "~/projects/my_plugin", 
+
+            -- Lazy nvim calls the config function below when loading the plugin.
+            -- Here we require our plugin's init.lua file to execute the code in the file.
+            -- Neovim searches the plugin's directories for the "init.lua" file automatically.
+            -- See ":h require" for more information on how Neovim loads init files.
+            config = function()
+                require("my_plugin")
+            end
         },
 
         -- end custom_plugin --
