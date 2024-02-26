@@ -54,19 +54,20 @@ require("lazy").setup(
         -- custom_plugin --
         {
             dir = "~/projects/my_plugin", 
-            -- filetype --
-            ft = { "text" }, -- The plugin will now only load when we open a text file
-            -- end filetype --
-            config = function()
-                require("my_plugin")
-            end
+            ft = { "text" },
+            -- setup_method --
+
+            -- Tell the plugin if we want line numbers
+            opts = { line_numbers = true },
+
+            -- end setup_method --
         },
         -- end custom_plugin --
 
     }, 
     {
         -- global lazy --
-        default = { lazy = true }
+        defaults = { lazy = true }
         -- end global lazy --
     }
 )
