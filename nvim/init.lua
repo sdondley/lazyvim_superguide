@@ -19,9 +19,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- custom --
 
--- Now we'll load in a simple lua file containing some custom settings for the neovim editor.
--- This is just the standard way of loading a file in Lua.
--- Note the "." is a substitute for the "/" in the path.
 require("custom.my_settings");
 
 -- end custom --
@@ -41,9 +38,25 @@ require("lazy").setup(
             opts = { style = "moon", transparent = true }
         },
         -- end theme --
+
+        -- which_key --
+        
+        -- Now we will add a new plugin to our setup called which-key.nvim
+        -- This plugin helps us remember key maps
+        -- See https://github.com/folke/which-key.nvim for details
+		{
+			"folke/which-key.nvim", -- The last part of the GitHub repo
+			lazy = false,           -- plugin loads right away
+		  	init = function()       -- the init function is always run
+				vim.opt.timeout = true
+				vim.opt.timeoutlen = 200
+		  	end,
+			opts = {}               -- additional plugin opts can go here
+		},
+
+        -- end which_key --
     }, 
     {}  -- our lazy.nvim options will go here
 )
-
 
 -- end setup --
