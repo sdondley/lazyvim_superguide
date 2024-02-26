@@ -56,7 +56,7 @@ require("lazy").setup(
             dir = "~/projects/my_plugin", 
             -- filetype --
             ft = { "text" }, -- The plugin will now only load when we open a text file
-            -- end filetyp --
+            -- end filetype --
             config = function()
                 require("my_plugin")
             end
