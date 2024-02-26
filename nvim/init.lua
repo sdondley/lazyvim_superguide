@@ -22,7 +22,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Now we'll load in a simple lua file containing some custom settings for the neovim editor.
 -- This is just the standard way of loading a file in Lua.
 -- Note the "." is a substitute for the "/" in the path.
-require("custom.my_settings");
+require("my_settings");
 
 -- end custom --
 
