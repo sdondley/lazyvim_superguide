@@ -30,7 +30,7 @@ require("lazy").setup(
         -- theme --
         {
             "folke/tokyonight.nvim",
-            lazy = false,
+            lazy = false, -- override the default lazy load setting
             priority = 1000,
             init = function()
                 vim.cmd([[colorscheme tokyonight]])
@@ -43,7 +43,7 @@ require("lazy").setup(
         
 		{
 			"folke/which-key.nvim", 
-			lazy = false,           
+			lazy = false,  -- override the default lazy load setting
 		  	init = function()       
 				vim.opt.timeout = true
 				vim.opt.timeoutlen = 200
@@ -53,14 +53,9 @@ require("lazy").setup(
 
         -- custom_plugin --
 
+        -- The "my_plugin" plugin will no longer load at startup because it is lazily loaded
         {
             dir = "~/projects/my_plugin", 
-
-            -- lazy_loading --
-            lazy = true, -- We set lazy to a 'true'. Now lazy nvim will no longer load my_plugin plugin at startup.
-            -- end lazy_loading --
-
-            -- The config function is never run because the plugin is not loaded.
             config = function()
                 require("my_plugin")
             end
@@ -70,7 +65,16 @@ require("lazy").setup(
 
         -- end which_key --
     }, 
-    {}  -- our lazy.nvim options will go here
+    {
+        -- global lazy --
+        
+        -- Our first setting in the opts table overrides the default setting for lazy loading.
+        -- We change it from false to true.
+        -- Now all plugins will be lazy loaded by default.
+        -- Now, for each plugin, we must manually set the conditions for them to load in the plugin spec.
+        default = { lazy = true }
+        -- end global lazy --
+    }
 )
 
 -- end setup --
