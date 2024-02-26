@@ -41,18 +41,25 @@ require("lazy").setup(
 
         -- which_key --
         
-        -- Now we will add a new plugin to our setup called which-key.nvim
-        -- This plugin helps us remember key maps
-        -- See https://github.com/folke/which-key.nvim for details
 		{
-			"folke/which-key.nvim", -- The last part of the GitHub repo
-			lazy = false,           -- plugin loads right away
-		  	init = function()       -- the init function is always run
+			"folke/which-key.nvim", 
+			lazy = false,           
+		  	init = function()       
 				vim.opt.timeout = true
 				vim.opt.timeoutlen = 200
 		  	end,
-			opts = {}               -- additional plugin opts can go here
+			opts = {}               
 		},
+
+        -- custom_plugin --
+
+        -- Next we add a custom plugin to the configuration with a new plugin spec
+        -- With lazyvim, plugins are found in the ~/projects directory by default
+        {
+            dir = "my_plugin.nvim" -- tell lazy vim which plugin we want to load
+        },
+
+        -- end custom_plugin --
 
         -- end which_key --
     }, 
