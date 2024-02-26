@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- custom --
 
-require("custom.my_settings");
+require("my_settings");
 
 -- end custom --
 
